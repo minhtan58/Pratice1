@@ -3,9 +3,12 @@ TEMPLATE = app
 QT += qml quick
 CONFIG += c++11
 
-SOURCES += main.cpp \
+SOURCES += \
     App/main.cpp \
-    App/DataLogger.cpp
+    App/DataLogger.cpp \
+    App/QmlConstants.cpp \
+    App/UIBridge.cpp \
+    App/ScreenAdapter.cpp
 
 RESOURCES += qml.qrc \
     images.qrc
@@ -33,4 +36,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    App/DataLogger.h
+    App/DataLogger.h \
+    App/QmlConstants.h \
+    App/UIBridge.h \
+    App/ScreenAdapter.h

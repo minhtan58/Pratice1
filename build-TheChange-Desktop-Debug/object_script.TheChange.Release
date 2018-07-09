@@ -1,0 +1,13 @@
+INPUT(
+./release/main.o
+./release/DataLogger.o
+./release/QmlConstants.o
+./release/UIBridge.o
+./release/ScreenAdapter.o
+./release/qrc_qml.o
+./release/qrc_images.o
+./release/moc_DataLogger.o
+./release/moc_QmlConstants.o
+./release/moc_UIBridge.o
+./release/moc_ScreenAdapter.o
+);
