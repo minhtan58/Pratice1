@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>resources/main.qml</file>
         <file>resources/qml/mainScreens.qml</file>
+        <file>resources/widget/QText.qml</file>
     </qresource>
 </RCC>
