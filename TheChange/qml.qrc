@@ -3,5 +3,6 @@
         <file>resources/main.qml</file>
         <file>resources/qml/mainScreens.qml</file>
         <file>resources/widget/QText.qml</file>
+        <file>resources/qml/ProgressBar.qml</file>
     </qresource>
 </RCC>
