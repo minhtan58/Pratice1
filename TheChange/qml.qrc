@@ -4,5 +4,6 @@
         <file>resources/qml/mainScreens.qml</file>
         <file>resources/widget/QText.qml</file>
         <file>resources/qml/ProgressBar.qml</file>
+        <file>resources/qml/keypad.qml</file>
     </qresource>
 </RCC>
