@@ -3,6 +3,7 @@
 
 #include <QObject>
 
+
 class UIBridge : public QObject
 {
     Q_OBJECT

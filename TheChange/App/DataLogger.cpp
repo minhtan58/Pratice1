@@ -7,8 +7,14 @@
 
 DataLogger::DataLogger(QObject *parent) : QObject(parent)
 {
-
+    //HLOG("Create main");
+    qmlRegisterType<UIBridge>("UIBridge", 1, 0, "UIBridge");
+    qmlRegisterType<DataEnum>("DataEnum", 1, 0, "DataEnum");
+    qRegisterMetaType<DataEnum::DatapoolID>("DataEnum::DatapoolID");
+    qRegisterMetaType<DataEnum::HMIEvent>("DataEnum::HMIEvent");
 }
+
+DataLogger::~DataLogger(){}
 
 void DataLogger::initDatalogger(){
     //m_Engine QmlEngine

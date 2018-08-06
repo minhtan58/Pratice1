@@ -6,12 +6,15 @@
 
 #include "QmlConstants.h"
 #include "UIBridge.h"
+#include "Defines.h"
+#include "DataEnum.h"
 
 class DataLogger : public QObject
 {
     Q_OBJECT
 public:
     explicit DataLogger(QObject *parent = 0);
+    ~DataLogger();
     void initDatalogger();
 private:
     QQmlApplicationEngine m_Engine;

@@ -3,18 +3,20 @@
 
 #include <QObject>
 #include <QQuickItem>
+#include <QQmlApplicationEngine>
 
 class ScreenAdapter : public QObject
 {
     Q_OBJECT
 public:
-    explicit ScreenAdapter(QObject *parent = 0);
+    explicit ScreenAdapter(QQmlApplicationEngine *qmlAppEngine, QObject *parent = nullptr);
     ~ScreenAdapter();
 signals:
 
 private:
     int m_screenId;
     QQuickItem* m_appContainer = nullptr;
+    QQmlApplicationEngine *m_qmlAppEngine = nullptr;
 public slots:
 };
 
