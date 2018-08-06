@@ -20,7 +20,7 @@ public:
 public slots:
     void updateTimeSystem();
     void eventHandler(QString objectName, int eventID, QString param);
-    void updateAppData(int dpId);
+    //void updateAppData(int dpId);
 };
 
 #endif // TIMESYSTEMHANDLER_H

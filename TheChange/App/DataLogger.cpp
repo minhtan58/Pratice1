@@ -20,6 +20,8 @@ void DataLogger::initDatalogger(){
     m_Engine.load(QUrl(QStringLiteral("qrc:/resources/main.qml")));
     //connect(DataManager::getInstance(), SIGNAL(dataChanged(int)), m_topBarAdapter, SLOT(updateAppData(int)), Qt::UniqueConnection);
 
+    //Load screen
+    m_screenAdapter = new ScreenAdapter(&m_qmlAppEngine, this);
 
 }
 

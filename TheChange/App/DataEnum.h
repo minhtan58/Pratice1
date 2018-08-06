@@ -1,6 +1,8 @@
 #ifndef DATAENUM_H
 #define DATAENUM_H
 
+#include <QObject>
+
 class DataEnum : public QObject
 {
     Q_GADGET

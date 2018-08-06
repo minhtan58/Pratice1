@@ -14,6 +14,7 @@
 #include "UIBridge.h"
 #include "Defines.h"
 #include "DataEnum.h"
+#include "ScreenAdapter.h"
 
 class DataLogger : public QObject
 {
@@ -26,6 +27,8 @@ private:
     QQmlApplicationEngine m_Engine;
     QMLConstants m_Constant;
     UIBridge m_UIBridge;
+
+    ScreenAdapter *m_screenAdapter = nullptr;
 
     void showScreen(int screenId);
 

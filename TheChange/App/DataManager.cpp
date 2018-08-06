@@ -4,6 +4,8 @@
     m_datapool.insert((int)param, (QString)""); \
     m_dpName.insert((int)param, ((QString)#param).mid(10))
 
+DataManager* DataManager::m_dataManager = nullptr;
+
 DataManager::DataManager(QObject *parent) : QObject(parent)
 {
     initData();
