@@ -3,6 +3,12 @@
 
 #include <QObject>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QDateTime>
+#include <QGuiApplication>
+#include <QDebug>
+#include <QThread>
+#include <QtQml>
 
 #include "QmlConstants.h"
 #include "UIBridge.h"

@@ -1,9 +1,4 @@
 #include "DataLogger.h"
-#include <QGuiApplication>
-
-#include <QDebug>
-#include <QThread>
-#include <QQmlContext>
 
 DataLogger::DataLogger(QObject *parent) : QObject(parent)
 {
@@ -30,6 +25,5 @@ void DataLogger::initDatalogger(){
 
 void DataLogger::showScreen(int screenId){
     qDebug()    << "[" << QThread::currentThreadId() << "][" << Q_FUNC_INFO << "]";
-
 
 }
