@@ -5,7 +5,9 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+
     DataLogger logger;
-    logger.initDatalogger();
+    logger.exec();
+
     return app.exec();
 }

@@ -11,17 +11,15 @@ DataLogger::DataLogger(QObject *parent) : QObject(parent)
 
 DataLogger::~DataLogger(){}
 
+void DataLogger::exec(){
+    DataManager::getInstance();
+    initDatalogger();
+
+}
+
 void DataLogger::initDatalogger(){
-    //m_Engine QmlEngine
-    QQmlContext *context = m_Engine.rootContext();
-    context -> setContextProperty("QMLConstants", &m_Constant);
-    context -> setContextProperty("UIBridge", &m_UIBridge);
+    m_threadHatndler = new ThreadHandler(this);
 
-    m_Engine.load(QUrl(QStringLiteral("qrc:/resources/main.qml")));
-    //connect(DataManager::getInstance(), SIGNAL(dataChanged(int)), m_topBarAdapter, SLOT(updateAppData(int)), Qt::UniqueConnection);
-
-    //Load screen
-    m_screenAdapter = new ScreenAdapter(&m_qmlAppEngine, this);
 
 }
 

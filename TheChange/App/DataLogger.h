@@ -15,6 +15,8 @@
 #include "Defines.h"
 #include "DataEnum.h"
 #include "ScreenAdapter.h"
+#include "DataManager.h"
+#include "ThreadHandler.h"
 
 class DataLogger : public QObject
 {
@@ -23,11 +25,13 @@ public:
     explicit DataLogger(QObject *parent = 0);
     ~DataLogger();
     void initDatalogger();
+    void exec();
+
 private:
     QQmlApplicationEngine m_Engine;
     QMLConstants m_Constant;
     UIBridge m_UIBridge;
-
+    ThreadHandler m_threadHatndler;
     ScreenAdapter *m_screenAdapter = nullptr;
 
     void showScreen(int screenId);
