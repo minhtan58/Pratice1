@@ -22,7 +22,8 @@ HEADERS += \
     App/ThreadHandler.h \
     App/Threads/TimeSystemHandler.h \
     App/Threads/SettingsHandler.h \
-    App/Common/Defines.h
+    App/Common/Defines.h \
+    App/Common/ScreenList.h
 
 SOURCES += \
     App/main.cpp \

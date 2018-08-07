@@ -26,6 +26,7 @@ public:
     ~DataLogger();
     void initDatalogger();
     void exec();
+    void hmiHandle(QString objectName, int eventId, QString param);
 
 private:
     QQmlApplicationEngine m_Engine;

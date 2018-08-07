@@ -1,9 +1,14 @@
 <RCC>
     <qresource prefix="/">
         <file>resources/main.qml</file>
-        <file>resources/qml/mainScreens.qml</file>
+        <file>resources/qmlScreen/mainScreens.qml</file>
         <file>resources/widget/QText.qml</file>
-        <file>resources/qml/ProgressBar.qml</file>
-        <file>resources/qml/keypad.qml</file>
+        <file>resources/qmlScreen/ProgressBar.qml</file>
+        <file>resources/qmlScreen/keypad.qml</file>
+        <file>resources/qmlScreen/scr_home.qml</file>
+        <file>resources/qmlScreen/scr_audio.qml</file>
+        <file>resources/qmlScreen/scr_setting.qml</file>
+        <file>resources/qmlScreen/scr_climate.qml</file>
+        <file>resources/qmlScreen/scr_network.qml</file>
     </qresource>
 </RCC>

@@ -13,18 +13,18 @@ UIBridge *UIBridge::getInstance(){
     return m_uiBridge;
 }
 
-void UIBridge::getDPData(int dpid){
+QString UIBridge::getDPData(int dpid){
     return DataManager::getInstance()->getData(dpid);
 }
 
 void UIBridge::setDPData(int dpid, QVariant value){
-    DataManager::getInstance()->setData(dpID, value.toString());
+    DataManager::getInstance()->setData(dpid, value.toString());
 }
 
 void UIBridge::log(QString msg){
-    HLOG_THREAD << msg;
+    HLOG("%s", msg.toStdString().data());
 }
 
-void UIBridge::sendEvent(QString objectName, int eventID, Qstring param){
+void UIBridge::sendEvent(QString objectName, int eventId, QString param){
     emit hmiEvent(objectName, eventId, param);
 }

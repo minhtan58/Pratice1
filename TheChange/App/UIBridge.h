@@ -12,8 +12,8 @@ class UIBridge : public QObject
 public:
     explicit UIBridge(QObject *parent = 0);
     static UIBridge *getInstance();
-    ~UIBridge;
-    Q_INVOKABLE QString getDPData();
+    ~UIBridge();
+    Q_INVOKABLE QString getDPData(int dpid);
     Q_INVOKABLE void setDPData(int dpid, QVariant value);
     Q_INVOKABLE void log(QString msg);
 
