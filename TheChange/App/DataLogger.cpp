@@ -24,8 +24,13 @@ void DataLogger::initDatalogger(){
 }
 
 void DataLogger::showScreen(int screenId){
-    qDebug()    << "[" << QThread::currentThreadId() << "][" << Q_FUNC_INFO << "]";
-
+    DLOG("Display screen : %d", screenId);
+    if(m_screenAdapter && m_screenAdapter->getCurrentScreen() == screenId) {
+        return;
+    }
+    m_screenAdapter->setScreenId(screenId);
+    m_screenAdapter->createScreen();
+    connect(DataManager::getInstance(), SIGNAL(dataChanged(int)), m_screenAdapter, SLOT(updateAppData(int)), Qt::UniqueConnection);
 }
 
 void DataLogger::hmiHandle(QString objectName, int eventId, QString param){
@@ -33,21 +38,39 @@ void DataLogger::hmiHandle(QString objectName, int eventId, QString param){
 
     switch (eventId) {
     case DataEnum::HMI_BUTTON_HOME: {
-        if(m_screenAdapter->getCurrentScreen() < SCR_SETTINGS_OVERVIEW
-                || m_screenAdapter->getCurrentScreen() > SCR_SETTINGS_DEVELOPMENT) {
-            showScreen(SCR_SETTINGS_OVERVIEW);
+        if(m_screenAdapter && m_screenAdapter->getCurrentScreen() != ICS_HOME) {
+            showScreen(ICS_HOME);
+        }
+        break;
+    }
+    case DataEnum::HMI_BUTTON_AUDIO: {
+        if(m_screenAdapter && m_screenAdapter->getCurrentScreen() != ICS_AUDIO) {
+            showScreen(ICS_HOME);
         }
         break;
     }
     case DataEnum::HMI_BUTTON_SETTING: {
-        if(m_screenAdapter->getCurrentScreen() < SCR_SETTINGS_OVERVIEW
-                || m_screenAdapter->getCurrentScreen() > SCR_SETTINGS_DEVELOPMENT) {
-            showScreen(SCR_SETTINGS_OVERVIEW);
+        if(m_screenAdapter && m_screenAdapter->getCurrentScreen() != ICS_SETTING) {
+            showScreen(ICS_HOME);
         }
         break;
     }
-    case DataEnum::HMI_BUTTON_HISTORY: {
-        showScreen(SCR_HISTORY_DATAVIEW);
+    case DataEnum::HMI_BUTTON_CLIMATE: {
+        if(m_screenAdapter && m_screenAdapter->getCurrentScreen() != ICS_CLIMATE) {
+            showScreen(ICS_HOME);
+        }
+        break;
+    }
+    case DataEnum::HMI_BUTTON_DATA: {
+        if(m_screenAdapter && m_screenAdapter->getCurrentScreen() != ICS_DATA) {
+            showScreen(ICS_HOME);
+        }
+        break;
+    }
+    case DataEnum::HMI_BUTTON_NETWORK: {
+        if(m_screenAdapter && m_screenAdapter->getCurrentScreen() != ICS_NETWORK) {
+            showScreen(ICS_HOME);
+        }
         break;
     }
     default:

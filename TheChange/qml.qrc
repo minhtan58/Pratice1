@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>resources/main.qml</file>
-        <file>resources/qmlScreen/mainScreens.qml</file>
         <file>resources/widget/QText.qml</file>
         <file>resources/qmlScreen/ProgressBar.qml</file>
         <file>resources/qmlScreen/keypad.qml</file>

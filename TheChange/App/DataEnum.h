@@ -43,8 +43,11 @@ public:
 
     typedef enum _HMIEvent{
         HMI_BUTTON_HOME,
+        HMI_BUTTON_AUDIO,
         HMI_BUTTON_SETTING,
-        HMI_BUTTON_HISTORY,
+        HMI_BUTTON_CLIMATE,
+        HMI_BUTTON_DATA,
+        HMI_BUTTON_NETWORK,
 
         //switch
         HMI_SWITCH_UPDATE_TIME_AUTOMATIC,
