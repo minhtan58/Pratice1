@@ -7,33 +7,17 @@ Item {
     anchors.fill: parent
 
     Image {
-        id: img_bg_main
-        property string focusSource: ''
-        property string normalSource: UIBridge.getImageSourceByName("bg_main")
-        objectName: "img_bg_main"
-        width: 800
-        height: 480
-        source: normalSource
-        y: 0
-        x: 0
-
-        MouseArea {
-            anchors.fill: parent
-        }
-    }
-
-    Image {
         id: audio_icon
         x: 15
         y: 8
         width: 180
         height: 180
-        source: mousre_audio.containsMouse ? "qrc:/resources/audio_icon_active.png" : "qrc:/resources/image/audio_icon_inactive.png"
+        source: mousre_audio.containsMouse ? "qrc:/resources/images/icon_audio_pressed.png" : "qrc:/resources/images/icon_audio.png"
 
         MouseArea {
             id: mousre_audio
             anchors.fill: parent
-            onClicked: UIBridge.hmiEvent("", CEMSEnum.HMI_BUTTON_HOME, "")
+            onClicked: UIBridge.hmiEvent("", DataEnum.HMI_BUTTON_AUDIO, "")
         }
     }
 
@@ -44,12 +28,12 @@ Item {
         width: 180
         height: 180
 
-        source: mousre_setting.containsMouse ? "qrc:/resources/icon_setting.png" : "qrc:/resources/image/icon_setting_pressed.png"
+        source: mousre_setting.containsMouse ? "qrc:/resources/images/icon_setting_pressed.png" : "qrc:/resources/images/icon_setting.png"
 
         MouseArea {
             id: mousre_setting
             anchors.fill: parent
-            onClicked: UIBridge.hmiEvent("", CEMSEnum.HMI_BUTTON_HOME, "")
+            onClicked: UIBridge.hmiEvent("", DataEnum.HMI_BUTTON_SETTING, "")
         }
     }
 
@@ -60,12 +44,12 @@ Item {
         width: 180
         height: 180
 
-        source: mousre_climate.containsMouse ? "qrc:/resources/icon_climate.png" : "qrc:/resources/image/icon_climate_pressed.png"
+        source: mousre_climate.containsMouse ? "qrc:/resources/images/icon_climate_pressed.png" : "qrc:/resources/images/icon_climate.png"
 
         MouseArea {
-            id: mousre_climcate
+            id: mousre_climate
             anchors.fill: parent
-            onClicked: UIBridge.hmiEvent("", CEMSEnum.HMI_BUTTON_HOME, "")
+            onClicked: UIBridge.hmiEvent("", DataEnum.HMI_BUTTON_CLIMATE, "")
         }
     }
 
@@ -76,12 +60,12 @@ Item {
         width: 180
         height: 180
 
-        source: mousre_data.containsMouse ? "qrc:/resources/data_icon_active.png" : "qrc:/resources/image/data_icon_inactive.png"
+        source: mousre_data.containsMouse ? "qrc:/resources/images/icon_data_pressed.png" : "qrc:/resources/images/icon_data.png"
 
         MouseArea {
             id: mousre_data
             anchors.fill: parent
-            onClicked: UIBridge.hmiEvent("", CEMSEnum.HMI_BUTTON_HOME, "")
+            onClicked: UIBridge.hmiEvent("", DataEnum.HMI_BUTTON_DATA, "")
         }
     }
 
@@ -92,12 +76,12 @@ Item {
         width: 180
         height: 180
 
-        source: mousre_network.containsMouse ? "qrc:/resources/network_icon_active.png" : "qrc:/resources/image/network_icon_inactive.png"
+        source: mousre_network.containsMouse ? "qrc:/resources/images/icon_network_pressed.png" : "qrc:/resources/images/icon_network.png"
 
         MouseArea {
             id: mousre_network
             anchors.fill: parent
-            onClicked: UIBridge.hmiEvent("", CEMSEnum.HMI_BUTTON_HOME, "")
+            onClicked: UIBridge.hmiEvent("", DataEnum.HMI_BUTTON_NETWORK, "")
         }
     }
 }

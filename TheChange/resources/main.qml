@@ -24,7 +24,6 @@ Window {
             source: "qrc:/resources/images/background.png"
         }
 
-
         Loader {
             id: mainScreen
             objectName: "mainScreen"

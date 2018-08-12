@@ -17,7 +17,7 @@ public:
     void createScreen();
     void initAppData();
     void setScreenId(int screenId);
-    void getCurrentScreen();
+    int getCurrentScreen();
 private:
     int m_screenId;
     QQuickItem* m_appContainer = nullptr;

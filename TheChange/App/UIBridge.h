@@ -2,6 +2,7 @@
 #define UIBRIDGE_H
 
 #include <QObject>
+#include <QVariant>
 
 #include "DataManager.h"
 #include "Defines.h"

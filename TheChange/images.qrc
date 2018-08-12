@@ -1,5 +1,15 @@
 <RCC>
     <qresource prefix="/">
         <file>resources/images/background.png</file>
+        <file>resources/images/icon_audio.png</file>
+        <file>resources/images/icon_audio_pressed.png</file>
+        <file>resources/images/icon_climate.png</file>
+        <file>resources/images/icon_climate_pressed.png</file>
+        <file>resources/images/icon_data.png</file>
+        <file>resources/images/icon_data_pressed.png</file>
+        <file>resources/images/icon_network.png</file>
+        <file>resources/images/icon_network_pressed.png</file>
+        <file>resources/images/icon_setting.png</file>
+        <file>resources/images/icon_setting_pressed.png</file>
     </qresource>
 </RCC>

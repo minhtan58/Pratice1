@@ -26,10 +26,8 @@ public:
     ~DataLogger();
     void initDatalogger();
     void exec();
-    void hmiHandle(QString objectName, int eventId, QString param);
-
 private:
-    QQmlApplicationEngine m_Engine;
+    QQmlApplicationEngine m_qmlAppEngine;
     QMLConstants m_Constant;
     UIBridge m_UIBridge;
     ThreadHandler m_threadHatndler;
@@ -40,6 +38,7 @@ private:
 signals:
 
 public slots:
+    void hmiHandle(QString objectName, int eventId, QString param);
 };
 
 #endif // DATALOGGER_H
