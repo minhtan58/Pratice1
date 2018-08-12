@@ -9,6 +9,7 @@ CONFIG(release, debug|release) {
 
 INCLUDEPATH += \
     $$PWD/App \
+    $$PWD/App/Adapter \
     $$PWD/App/Common \
     $$PWD/App/Threads \
 
@@ -23,19 +24,22 @@ HEADERS += \
     App/Threads/TimeSystemHandler.h \
     App/Threads/SettingsHandler.h \
     App/Common/Defines.h \
-    App/Common/ScreenList.h
+    App/Common/ScreenList.h \
+    App/Adapter/ScreenAdapter.h \
+    App/Adapter/TaskbarAdapterr.h
 
 SOURCES += \
     App/main.cpp \
     App/DataLogger.cpp \
     App/QmlConstants.cpp \
     App/UIBridge.cpp \
-    App/ScreenAdapter.cpp \
     App/DataManager.cpp \
     App/ThreadHandler.cpp \
     App/Threads/TimeSystemHandler.cpp \
     App/Threads/SettingsHandler.cpp \
-    App/Common/123.cpp
+    App/Common/123.cpp \
+    App/Adapter/ScreenAdapter.cpp \
+    App/Adapter/TaskbarAdapter.cpp
 
 RESOURCES += qml.qrc \
     images.qrc

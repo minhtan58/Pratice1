@@ -19,6 +19,7 @@ void DataLogger::exec(){
 
 void DataLogger::initDatalogger(){
     connect(UIBridge::getInstance(), SIGNAL(hmiEvent(QString,int,QString)), this, SLOT(hmiHandle(QString,int,QString)));
+
     m_qmlAppEngine.rootContext()->setContextProperty("UIBridge", UIBridge::getInstance());
     m_qmlAppEngine.load(QUrl(QStringLiteral("qrc:/resources/main.qml")));
     m_screenAdapter = new ScreenAdapter(&m_qmlAppEngine, this);
