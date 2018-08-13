@@ -18,11 +18,15 @@ void DataLogger::exec(){
 }
 
 void DataLogger::initDatalogger(){
-    connect(UIBridge::getInstance(), SIGNAL(hmiEvent(QString,int,QString)), this, SLOT(hmiHandle(QString,int,QString)));
 
     m_qmlAppEngine.rootContext()->setContextProperty("UIBridge", UIBridge::getInstance());
     m_qmlAppEngine.load(QUrl(QStringLiteral("qrc:/resources/main.qml")));
+
     m_screenAdapter = new ScreenAdapter(&m_qmlAppEngine, this);
+    connect(UIBridge::getInstance(), SIGNAL(hmiEvent(QString,int,QString)), this, SLOT(hmiHandle(QString,int,QString)));
+    m_taskBarAdapter = new TaskbarAdapter(m_qmlAppEngine.rootObjects().at(0)->findChild<QQuickItem*>("taskbarContainer"), this);
+    connect(DataManager::getInstance(), SIGNAL(dataChanged(int)), m_taskBarAdapter, SLOT(updateAppData(int)), Qt::UniqueConnection);
+
 }
 
 void DataLogger::showScreen(int screenId){
@@ -33,6 +37,16 @@ void DataLogger::showScreen(int screenId){
     m_screenAdapter->setScreenId(screenId);
     m_screenAdapter->createScreen();
     connect(DataManager::getInstance(), SIGNAL(dataChanged(int)), m_screenAdapter, SLOT(updateAppData(int)), Qt::UniqueConnection);
+}
+
+void DataLogger::showOverlay(int overlayId, int timeout, int layer, QString message){
+    Q_UNUSED(message)
+    HLOG("Create overlay screen:: %d", overlayId);
+    QQuickItem *overlayStatus = m_qmlAppEngine.rootContext().at(0)->findChild<QQuickItem*>("overlayContainer");
+    if(!overlayStatus) {
+        DLOG("OverlayStatus null");
+        return;
+    }
 }
 
 void DataLogger::hmiHandle(QString objectName, int eventId, QString param){

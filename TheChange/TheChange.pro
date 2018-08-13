@@ -26,7 +26,7 @@ HEADERS += \
     App/Common/Defines.h \
     App/Common/ScreenList.h \
     App/Adapter/ScreenAdapter.h \
-    App/Adapter/TaskbarAdapterr.h
+    App/Adapter/TaskbarAdapter.h
 
 SOURCES += \
     App/main.cpp \

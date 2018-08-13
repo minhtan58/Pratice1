@@ -42,6 +42,7 @@ public:
     }DatapoolID;
 
     typedef enum _HMIEvent{
+        //-----------------SCREEN-----------------//
         HMI_BUTTON_HOME,
         HMI_BUTTON_AUDIO,
         HMI_BUTTON_SETTING,
@@ -49,7 +50,13 @@ public:
         HMI_BUTTON_DATA,
         HMI_BUTTON_NETWORK,
 
-        //switch
+        //-----------------POPUP-----------------//
+        HMI_REQUEST_SHOW_COMMON_POPUP,
+        HMI_REQUEST_HIDE_POPUP,
+
+
+
+
         HMI_SWITCH_UPDATE_TIME_AUTOMATIC,
         HMI_BUTTON_SET_RADIUS,
         HMI_BUTTON_SET_DATE_TIME,

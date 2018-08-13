@@ -8,5 +8,6 @@
         <file>resources/qmlScreen/scr_climate.qml</file>
         <file>resources/qmlScreen/scr_network.qml</file>
         <file>resources/qmlScreen/scr_data.qml</file>
+        <file>resources/overlayScreen/scr_update_data_fail.qml</file>
     </qresource>
 </RCC>

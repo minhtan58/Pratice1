@@ -21,7 +21,13 @@ void ScreenAdapter::createScreen(){
 
 void ScreenAdapter::initAppData(){
     HLOG("Update data for this screen");
+    switch (m_screenId) {
+    case ICS_AUDIO:
 
+        break;
+    default:
+        break;
+    }
 }
 
 void ScreenAdapter::eventHandler(QString objectName, int eventId, QString param){

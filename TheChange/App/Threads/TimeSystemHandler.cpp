@@ -20,15 +20,14 @@ void TimeSystemHandler::updateTimeSystem(){
 
 void TimeSystemHandler::eventHandler(QString objectName, int eventID, QString param){
     QStringList params = param.split(",");
-    QProcess cmd;
-//    Q_UNUSED(objectName)
-//    switch (eventID) {
-//    case DataEnum::HMI_SWITCH_UPDATE_TIME_AUTOMATIC:{
-//        SETDPDATA(DataEnum::DP_SYS_SETTINGS_TIME_AUTOMATIC_UPDATE, QString::number(1 - param.toUInt()));
+    Q_UNUSED(objectName)
+    switch (eventID) {
+    case DataEnum::HMI_SWITCH_UPDATE_TIME_AUTOMATIC:{
+        SETDPDATA(DataEnum::DP_SYS_SETTINGS_TIME_AUTOMATIC_UPDATE, QString::number(1 - param.toUInt()));
 
-//        break;
-//    }
-//    default:
-//        break;
-//    }
+        break;
+    }
+    default:
+        break;
+    }
 }

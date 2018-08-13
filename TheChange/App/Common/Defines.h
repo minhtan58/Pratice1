@@ -9,4 +9,9 @@
 
 #define HLOG_THREAD             qDebug()    << "[" << QThread::currentThreadId() << "][" \
                                             << Q_FUNC_INFO << "]"
+
+#define SETDPDATA(DPID, VALUE)  DataManager::getInstance()->setData(DPID, VALUE)
+
+#define GETDPDATA(DPID)         DataManager::getInstance()->getData(DPID)
+
 #endif // DEFINES_H
