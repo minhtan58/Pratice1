@@ -7,12 +7,12 @@ Item {
     anchors.fill: parent
 
     Image {
-        id: audio_icon
+        id: diagram_icon
         x: 15
         y: 8
         width: 180
         height: 180
-        source: mousre_audio.containsMouse ? "qrc:/resources/images/icon_audio_pressed.png" : "qrc:/resources/images/icon_audio.png"
+        source: mousre_audio.containsMouse ? "qrc:/resources/images/icon_diagram_pressed.png" : "qrc:/resources/images/icon_diagram.png"
 
         MouseArea {
             id: mousre_audio
@@ -28,7 +28,7 @@ Item {
         width: 180
         height: 180
 
-        source: mousre_setting.containsMouse ? "qrc:/resources/images/icon_setting_pressed.png" : "qrc:/resources/images/icon_setting.png"
+        source: mousre_setting.containsMouse ? "qrc:/resources/images/icon_connection_pressed.png" : "qrc:/resources/images/icon_connection.png"
 
         MouseArea {
             id: mousre_setting

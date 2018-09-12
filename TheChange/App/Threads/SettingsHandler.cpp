@@ -4,3 +4,4 @@ SettingsHandler::SettingsHandler(QObject *parent) : QObject(parent)
 {
 
 }
+

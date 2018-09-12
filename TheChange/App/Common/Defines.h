@@ -14,4 +14,7 @@
 
 #define GETDPDATA(DPID)         DataManager::getInstance()->getData(DPID)
 
+// Value Contain
+#define TIME_UPDATE_STATUS               5000
+
 #endif // DEFINES_H

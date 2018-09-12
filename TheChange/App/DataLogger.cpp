@@ -42,11 +42,11 @@ void DataLogger::showScreen(int screenId){
 void DataLogger::showOverlay(int overlayId, int timeout, int layer, QString message){
     Q_UNUSED(message)
     HLOG("Create overlay screen:: %d", overlayId);
-    QQuickItem *overlayStatus = m_qmlAppEngine.rootContext().at(0)->findChild<QQuickItem*>("overlayContainer");
-    if(!overlayStatus) {
-        DLOG("OverlayStatus null");
-        return;
-    }
+//    //QQuickItem *overlayStatus = m_qmlAppEngine.rootContext().at(0)->findChild<QQuickItem*>("overlayContainer");
+//    if(!overlayStatus) {
+//        //DLOG("OverlayStatus null");
+//        return;
+//    }
 }
 
 void DataLogger::hmiHandle(QString objectName, int eventId, QString param){

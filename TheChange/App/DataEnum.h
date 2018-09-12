@@ -10,7 +10,7 @@ class DataEnum : public QObject
     Q_ENUMS(_HMIEvent)
 public:
     typedef enum _DatapoolID{
-        //-----------------SYSTEM-----------------//
+        //-------------------SYSTEM-------------------//
         DP_SYS_TIME = 0x0000,
         DP_SYS_DATE,
 
@@ -25,19 +25,27 @@ public:
         DP_GENERAL_STATION_NAME,
         DP_GENERAL_RADIUS,
 
-        //-----------------SETTINGS-----------------//
+        //-----------------SETTINGS--------------------//
         DP_SETTINGS_DATAVIEW_MODE = 0x2000,
         DP_SETTINGS_DATAVIEW_MODE_CO,
         DP_SETTINGS_DATAVIEW_MODE_NO,
         DP_SETTINGS_DATAVIEW_MODE_NOX,
         DP_SETTINGS_DATAVIEW_MODE_SO2,
 
-        //-----------------AIR-----------------//
+        //---------------------AIR---------------------//
         DP_PPM_AIR_O2,
         DP_PPM_AIR_CO,
         DP_PPM_AIR_NO,
         DP_PPM_AIR_NOX,
         DP_PPM_AIR_SO2,
+
+        //-----------------SERIALPORT-----------------//
+        DP_SETTINGS_SERIALPORT_PORTNAME,
+        DP_SETTINGS_SERIALPORT_BAUDRATE,
+        DP_SETTINGS_SERIALPORT_INTERVAL,
+        DP_SETTINGS_SERIALPORT_STATUS,
+        DP_SETTINGS_SERIALPORT_TEST_CONNECTION,
+        DP_SETTINGS_SERIALPORT_LIST_AVAIABLE_PORTNAME,
 
     }DatapoolID;
 

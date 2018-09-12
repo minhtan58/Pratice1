@@ -11,6 +11,7 @@ INCLUDEPATH += \
     $$PWD/App \
     $$PWD/App/Adapter \
     $$PWD/App/Common \
+    $$PWD/App/ReadData \
     $$PWD/App/Threads \
 
 HEADERS += \
@@ -26,7 +27,9 @@ HEADERS += \
     App/Common/Defines.h \
     App/Common/ScreenList.h \
     App/Adapter/ScreenAdapter.h \
-    App/Adapter/TaskbarAdapter.h
+    App/Adapter/TaskbarAdapter.h \
+    App/ReadData/ComPort.h \
+    App/Threads/SerialPortHandler.h
 
 SOURCES += \
     App/main.cpp \
@@ -37,10 +40,13 @@ SOURCES += \
     App/ThreadHandler.cpp \
     App/Threads/TimeSystemHandler.cpp \
     App/Threads/SettingsHandler.cpp \
-    App/Common/123.cpp \
     App/Adapter/ScreenAdapter.cpp \
-    App/Adapter/TaskbarAdapter.cpp
+    App/Adapter/TaskbarAdapter.cpp \
+    App/ReadData/ComPort.cpp \
+    App/Threads/SerialPortHandler.cpp
 
 RESOURCES += qml.qrc \
     images.qrc
+
+DISTFILES +=
 
