@@ -14,7 +14,7 @@ public:
 signals:
 
 public slots:
-    void openSerialPort();
+    void openSerialPort(QString portCom);
     void closeSerialPort();
     void writeData(const QByteArray &data);
     void readData();

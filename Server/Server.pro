@@ -1,12 +1,10 @@
 TEMPLATE = app
 
-QT += qml quick serialport
+QT += qml quick
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    MySerialPort.cpp \
-    ManagerEvent.cpp \
-    UIBridge.cpp
+    server.cpp
 
 RESOURCES += qml.qrc
 
@@ -17,7 +15,4 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    MySerialPort.h \
-    ManagerEvent.h \
-    UIBridge.h \
-    Enum.h
+    server.h

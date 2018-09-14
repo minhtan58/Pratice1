@@ -5,12 +5,12 @@ MySerialPort::MySerialPort(QObject *parent) : QObject(parent)
     serial = new QSerialPort(this);
     connect(serial, SIGNAL(readyRead()), this, SLOT(readData()));
     connect(serial, SIGNAL(error(QSerialPort::SerialPortError)), this, SLOT(handleError(QSerialPort::SerialPortError)));
-    //openSerialPort();
 }
 
-void MySerialPort::openSerialPort()
+void MySerialPort::openSerialPort(QString portCom)
 {
-    serial->setPortName("COM2");
+    //serial->setPortName("COM2");
+    serial->setPortName(portCom);
     serial->setBaudRate(QSerialPort::Baud9600);
     serial->setDataBits(QSerialPort::Data8);
     serial->setParity(QSerialPort::NoParity);

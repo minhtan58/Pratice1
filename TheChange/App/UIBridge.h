@@ -18,7 +18,7 @@ public:
     Q_INVOKABLE void setDPData(int dpid, QVariant value);
     Q_INVOKABLE void log(QString msg);
 
-    void sendEvent (QString objectName, int eventId, QString param);
+    void sendEvent(QString objectName, int eventId, QString param);
 private:
     static UIBridge *m_uiBridge;
 signals:

@@ -1,7 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>MainForm.ui.qml</file>
         <file>home.qml</file>
+        <file>ics_connection_portcom.qml</file>
+        <file>ics_connection_internet.qml</file>
     </qresource>
 </RCC>

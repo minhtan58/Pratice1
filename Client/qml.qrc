@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>LoginForm.qml</file>
+        <file>Home.qml</file>
+        <file>Working.qml</file>
+        <file>Connection.qml</file>
+        <file>QBaseScreen.qml</file>
+        <file>Notification_Success.qml</file>
+        <file>Notification_Failed.qml</file>
+        <file>Connect_Success_Notification.qml</file>
+        <file>Connect_Failed_Notification.qml</file>
+        <file>Stop_Connect_Notification.qml</file>
+    </qresource>
+</RCC>

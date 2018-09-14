@@ -5,12 +5,23 @@ Window {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    Item {
+        id: screenArea
+        anchors.centerIn: parent
+        width: parent.width
+        height: parent.height
 
-    MainForm {
-        anchors.fill: parent
-        mouseArea.onClicked: {
-            Qt.quit();
+        Rectangle {
+            id: border
+            anchors.fill: parent
+            border.color: "#006400"
+            border.width: 2
+        }
+
+        Loader {
+            id: screenContainer
+            objectName: "screenContainer"
+            anchors.fill: parent
         }
     }
 }

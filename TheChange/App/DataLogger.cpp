@@ -26,7 +26,6 @@ void DataLogger::initDatalogger(){
     connect(UIBridge::getInstance(), SIGNAL(hmiEvent(QString,int,QString)), this, SLOT(hmiHandle(QString,int,QString)));
     m_taskBarAdapter = new TaskbarAdapter(m_qmlAppEngine.rootObjects().at(0)->findChild<QQuickItem*>("taskbarContainer"), this);
     connect(DataManager::getInstance(), SIGNAL(dataChanged(int)), m_taskBarAdapter, SLOT(updateAppData(int)), Qt::UniqueConnection);
-
 }
 
 void DataLogger::showScreen(int screenId){

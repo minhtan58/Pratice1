@@ -1,41 +1,46 @@
-import QtQuick 1.1
+import QtQuick 2.0
+import EventID 1.0
 
 Item {
-    id: grpServer
-    x: 100
-    y: 50
-    Text {
-        x: 0
-        y: 0
-        width: 100
-        height: 40
-        text: "Host IP:"
-        color: "#ffffff"
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignLeft
-        font.pixelSize: 20
-        wrapMode: Text.Wrap
+    Rectangle {
+        id: working_icon
+        x:100
+        y:100
+        width: 80
+        height: 80
+        color: "lightBlue"
+        border.color: "black"
+        Text {
+            text: qsTr("PortCom")
+            anchors.centerIn: parent
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                console.log("Bam roi 1")
+                UIBridge.hmiEvent(EventID.ics_connection_portcom,"")
+            }
+        }
     }
+    Rectangle {
+        id: connection_icon
+        x:200
+        y:100
+        width: 80
+        height: 80
+        color: "lightBlue"
+        border.color: "black"
+        Text {
+            text: qsTr("Internet")
+            anchors.centerIn: parent
+        }
 
-    TextInput {
-        id: settings_network_server_ip
-        objectName: "settings_network_server_ip"
-        x: 100
-        y: 0
-        width: 200
-        height: 40
-    }
-
-    Text {
-        x: 0
-        y: 50
-        width: 100
-        height: 40
-        text: "Port:"
-        color: "#ffffff"
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignLeft
-        font.pixelSize: 20
-        wrapMode: Text.Wrap
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                console.log("Bam roi 2")
+                UIBridge.hmiEvent(EventID.ics_connection_internet,"")
+            }
+        }
     }
 }
