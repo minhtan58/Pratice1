@@ -9,9 +9,9 @@ class EventID: public QObject
     Q_ENUMS(_HMIEvent)
 public:
      typedef enum _HMIEvent{
-        ics_home,
-        ics_connection_portcom,
-        ics_connection_internet,
+        ICS_HOME,
+        ICS_CONNECTION_PORTCOM,
+        ICS_CONNECTION_INTERNET,
     }HMIEvent;
 };
 
