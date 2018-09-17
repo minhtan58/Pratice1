@@ -11,6 +11,9 @@ void ManagerEvent::initWindow(){
     m_mySerialPort = new MySerialPort(this);
     m_engine.rootContext()->setContextProperty("MySerialPort", m_mySerialPort);
 
+    m_myTcpSocket = new MyTcpSocket(this);
+    m_engine.rootContext()->setContextProperty("MyTcpSocket", m_myTcpSocket);
+
     connect(UIBridge::getInstance(), SIGNAL(hmiEvent(int, QString)), this, SLOT(hmiHandle(int,QString)));
 
     m_screenContainer = m_engine.rootObjects().at(0)->findChild<QQuickItem*>("screenContainer");

@@ -1,12 +1,13 @@
 TEMPLATE = app
 
-QT += qml quick serialport
+QT += qml quick serialport network
 CONFIG += c++11
 
 SOURCES += main.cpp \
     MySerialPort.cpp \
     ManagerEvent.cpp \
-    UIBridge.cpp
+    UIBridge.cpp \
+    MyTcpSocket.cpp
 
 RESOURCES += qml.qrc
 
@@ -20,4 +21,5 @@ HEADERS += \
     MySerialPort.h \
     ManagerEvent.h \
     UIBridge.h \
-    Enum.h
+    Enum.h \
+    MyTcpSocket.h

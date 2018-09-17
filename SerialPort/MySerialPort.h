@@ -8,20 +8,25 @@
 class MySerialPort : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString message READ message WRITE setMessage NOTIFY messageChanged)
+
 public:
     explicit MySerialPort(QObject *parent = 0);
+    QString message() const;
 
 signals:
+    void messageChanged();
 
 public slots:
+    void readData();
+    void handleError(QSerialPort::SerialPortError error);
+    void setMessage(const QString &m);
     void openSerialPort(QString portCom);
     void closeSerialPort();
     void writeData(const QByteArray &data);
-    void readData();
-
-    void handleError(QSerialPort::SerialPortError error);
 
 private:
+    QString m_dataChange;
     void showStatus(const QString &status);
     QSerialPort *serial = nullptr;
 };

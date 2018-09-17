@@ -17,7 +17,7 @@ void MySerialPort::openSerialPort(QString portCom)
     serial->setStopBits(QSerialPort::OneStop);
     serial->setFlowControl(QSerialPort::NoFlowControl);
     if (serial->open(QIODevice::ReadWrite)) {
-        showStatus("Connectedd");
+        showStatus("Connected");
     } else {
         showStatus(tr("Open error"));
     }
@@ -36,11 +36,25 @@ void MySerialPort::writeData(const QByteArray &data)
     serial->write(data);
 }
 
+QString MySerialPort::message() const
+{
+    return m_dataChange;
+}
+
+void MySerialPort::setMessage(const QString &m)
+{
+        if (m_dataChange == m)
+            return;
+        m_dataChange = m;
+        emit messageChanged();
+}
+
 void MySerialPort::readData()
 {
    QByteArray data = serial->readAll();
-
+   m_dataChange = QString::fromUtf8(data);
    qDebug() << data;
+   emit messageChanged();
 }
 
 void MySerialPort::handleError(QSerialPort::SerialPortError error)

@@ -9,6 +9,7 @@
 
 #include "UIBridge.h"
 #include "MySerialPort.h"
+#include "MyTcpSocket.h"
 #include "Enum.h"
 
 class ManagerEvent : public QObject
@@ -23,7 +24,7 @@ private:
     QQmlApplicationEngine m_engine;
     UIBridge *m_uiBridge;
     MySerialPort *m_mySerialPort = nullptr;
-
+    MyTcpSocket *m_myTcpSocket = nullptr;
 signals:
 
 public slots:

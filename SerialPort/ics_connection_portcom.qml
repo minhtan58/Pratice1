@@ -119,25 +119,6 @@ Item {
         }
     }
 
-    Rectangle {
-        id: connect_to_server_button
-        x: 750
-        y: 250
-        width: 70
-        height: 20
-        border.color: "black"
-        Text {
-            anchors.centerIn: parent
-            text: qsTr("Connect")
-        }
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                MySerialPort.openSerialPort(port_to_connect.text)
-            }
-        }
-    }
-
     Text {
         id:status
         text: qsTr("Receive/send data")
@@ -156,7 +137,7 @@ Item {
         Text {
             id: show_notification
             text: {
-                Status.message
+                MySerialPort.message
             }
         }
     }
