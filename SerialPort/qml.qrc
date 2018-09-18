@@ -1,8 +1,11 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>home.qml</file>
-        <file>ics_connection_portcom.qml</file>
-        <file>ics_connection_internet.qml</file>
+        <file>Screen/home.qml</file>
+        <file>Screen/ics_connection_network.qml</file>
+        <file>Screen/ics_connection_portcom.qml</file>
+        <file>Widget/home.qml</file>
+        <file>Screen/ics_connect_popup.qml</file>
+        <file>Screen/ics_disconnect_popup.qml</file>
     </qresource>
 </RCC>

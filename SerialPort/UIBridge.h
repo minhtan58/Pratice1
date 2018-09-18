@@ -12,11 +12,11 @@ public:
     static UIBridge *getInstance();
     ~UIBridge();
 
-    void sendEvent(int eventId, QString param);
+    void sendEvent(QString objectName, int eventId, QString param);
 private:
     static UIBridge *m_uiBridge;
 signals:
-    void hmiEvent(int eventId, QString param);
+    void hmiEvent(QString objectName, int eventId, QString param);
 public slots:
 };
 

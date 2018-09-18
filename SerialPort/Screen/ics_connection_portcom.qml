@@ -14,7 +14,7 @@ Item {
         Text {text: qsTr("Back");anchors.centerIn: parent}
         MouseArea {
             anchors.fill: parent
-            onClicked: UIBridge.hmiEvent(EventID.ICS_HOME,"")
+            onClicked: UIBridge.hmiEvent("", EventID.HMI_HOME_SCREEN,"")
         }
     }
 
@@ -52,9 +52,31 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
+                UIBridge.hmiEvent("", EventID.HMI_CONNECED_POPUP,"")
                 MySerialPort.openSerialPort(port_to_connect.text);
                 MySerialPort.readData()
+
                 //show_notification.text = "Stop Connecting to " + UIBridge.getIPAddress()
+            }
+        }
+    }
+
+    Rectangle {
+        id: popup1
+        x: 400
+        y: 60
+        width: 70
+        height: 20
+        border.color: "black"
+        Text {
+            anchors.centerIn: parent
+            text: qsTr("Check")
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                UIBridge.hmiEvent("", EventID.HMI_CONNECTED_POPUP,"")
+                console.log("Vao roi day")
             }
         }
     }
@@ -74,6 +96,7 @@ Item {
             anchors.fill: parent
             onClicked: {
                 MySerialPort.closeSerialPort();
+                UIBridge.hmiEvent("", EventID.HMI_DISCONNECTED_POPUP,"")
                 //show_notification.text = "Stop Connecting to " + UIBridge.getIPAddress()
             }
         }

@@ -11,6 +11,7 @@
 #include "MySerialPort.h"
 #include "MyTcpSocket.h"
 #include "Enum.h"
+#include "ScreenAdapter.h"
 
 class ManagerEvent : public QObject
 {
@@ -20,15 +21,23 @@ public:
     QQuickItem *m_screenContainer = nullptr;
     void sendEvent(int eventId, QString params);
     void initWindow();
+
 private:
     QQmlApplicationEngine m_engine;
     UIBridge *m_uiBridge;
     MySerialPort *m_mySerialPort = nullptr;
     MyTcpSocket *m_myTcpSocket = nullptr;
+    ScreenAdapter m_screenAdapter = nullptr;
+
+    void showScreen(int screenId);
+
+    void showOverlay(int overlayId, int timeout, int layer = OVERLAY, QString message = "");
+    void hideOverlay();
+
 signals:
 
 public slots:
-    void hmiHandle(int eventId, QString param);
+    void hmiHandle(QString objectName, int eventId, QString param);
 };
 
 #endif // MANAGEREVENT_H

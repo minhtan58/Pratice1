@@ -18,7 +18,7 @@ Item {
             anchors.fill: parent
             onClicked: {
                 console.log("Bam roi 1")
-                UIBridge.hmiEvent(EventID.ICS_CONNECTION_PORTCOM,"")
+                UIBridge.hmiEvent(EventID.HMI_CONNECTION_PORTCOM_SCREEN,"")
             }
         }
     }
@@ -39,7 +39,7 @@ Item {
             anchors.fill: parent
             onClicked: {
                 console.log("Bam roi 2")
-                UIBridge.hmiEvent(EventID.ICS_CONNECTION_INTERNET,"")
+                UIBridge.hmiEvent(EventID.HMI_CONNECTION_NETWORK_SCREEN,"")
             }
         }
     }

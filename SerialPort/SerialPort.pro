@@ -7,7 +7,10 @@ SOURCES += main.cpp \
     MySerialPort.cpp \
     ManagerEvent.cpp \
     UIBridge.cpp \
-    MyTcpSocket.cpp
+    MyTcpSocket.cpp \
+    TimeHandler.cpp \
+    ManagerData.cpp \
+    ScreenAdapter.cpp
 
 RESOURCES += qml.qrc
 
@@ -22,4 +25,7 @@ HEADERS += \
     ManagerEvent.h \
     UIBridge.h \
     Enum.h \
-    MyTcpSocket.h
+    MyTcpSocket.h \
+    TimeHandler.h \
+    ManagerData.h \
+    ScreenAdapter.h

@@ -14,7 +14,7 @@ Item {
         Text {text: qsTr("Back");anchors.centerIn: parent}
         MouseArea {
             anchors.fill: parent
-            onClicked: UIBridge.hmiEvent(EventID.ICS_HOME,"")
+            onClicked: UIBridge.hmiEvent("", EventID.ICS_HOME,"")
         }
     }
 
