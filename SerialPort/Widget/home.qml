@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import EventID 1.0
+import EnumID 1.0
 
 Item {
     Rectangle {
@@ -18,7 +18,7 @@ Item {
             anchors.fill: parent
             onClicked: {
                 console.log("Bam roi 1")
-                UIBridge.hmiEvent(EventID.HMI_CONNECTION_PORTCOM_SCREEN,"")
+                UIBridge.hmiEvent(EnumID.HMI_CONNECTION_PORTCOM_SCREEN,"")
             }
         }
     }
@@ -39,7 +39,7 @@ Item {
             anchors.fill: parent
             onClicked: {
                 console.log("Bam roi 2")
-                UIBridge.hmiEvent(EventID.HMI_CONNECTION_NETWORK_SCREEN,"")
+                UIBridge.hmiEvent(EnumID.HMI_CONNECTION_NETWORK_SCREEN,"")
             }
         }
     }

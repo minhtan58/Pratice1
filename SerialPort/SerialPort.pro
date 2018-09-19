@@ -3,14 +3,21 @@ TEMPLATE = app
 QT += qml quick serialport network
 CONFIG += c++11
 
+INCLUDEPATH += \
+    $$PWD/Common \
+    $$PWD/Connection \
+    $$PWD/Threads \
+
 SOURCES += main.cpp \
     MySerialPort.cpp \
     ManagerEvent.cpp \
     UIBridge.cpp \
     MyTcpSocket.cpp \
-    TimeHandler.cpp \
     ManagerData.cpp \
-    ScreenAdapter.cpp
+    ScreenAdapter.cpp \
+    Connection/MySerialPort.cpp \
+    Connection/MyTcpSocket.cpp \
+    Threads/TimeHandler.cpp
 
 RESOURCES += qml.qrc
 
@@ -21,11 +28,15 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    MySerialPort.h \
     ManagerEvent.h \
     UIBridge.h \
     Enum.h \
     MyTcpSocket.h \
     TimeHandler.h \
     ManagerData.h \
-    ScreenAdapter.h
+    ScreenAdapter.h \
+    Common/Defines.h \
+    Common/Enum.h \
+    Connection/MySerialPort.h \
+    Connection/MyTcpSocket.h \
+    Threads/TimeHandler.h

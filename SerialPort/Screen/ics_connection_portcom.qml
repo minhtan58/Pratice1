@@ -1,6 +1,6 @@
 import QtQuick 2.5
 import QtQuick.Window 2.2
-import EventID 1.0
+import EnumID 1.0
 
 Item {
     Rectangle {
@@ -14,7 +14,7 @@ Item {
         Text {text: qsTr("Back");anchors.centerIn: parent}
         MouseArea {
             anchors.fill: parent
-            onClicked: UIBridge.hmiEvent("", EventID.HMI_HOME_SCREEN,"")
+            onClicked: UIBridge.hmiEvent("", EnumID.HMI_HOME_SCREEN,"")
         }
     }
 
@@ -52,7 +52,7 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                UIBridge.hmiEvent("", EventID.HMI_CONNECED_POPUP,"")
+                UIBridge.hmiEvent("", EnumID.HMI_CONNECED_POPUP,"")
                 MySerialPort.openSerialPort(port_to_connect.text);
                 MySerialPort.readData()
 
@@ -75,7 +75,7 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                UIBridge.hmiEvent("", EventID.HMI_CONNECTED_POPUP,"")
+                UIBridge.hmiEvent("", EnumID.HMI_CONNECTED_POPUP,"")
                 console.log("Vao roi day")
             }
         }
@@ -96,7 +96,7 @@ Item {
             anchors.fill: parent
             onClicked: {
                 MySerialPort.closeSerialPort();
-                UIBridge.hmiEvent("", EventID.HMI_DISCONNECTED_POPUP,"")
+                UIBridge.hmiEvent("", EnumID.HMI_DISCONNECTED_POPUP,"")
                 //show_notification.text = "Stop Connecting to " + UIBridge.getIPAddress()
             }
         }

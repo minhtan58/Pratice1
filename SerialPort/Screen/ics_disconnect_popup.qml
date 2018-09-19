@@ -1,6 +1,6 @@
 import QtQuick 2.5
 import QtQuick.Window 2.2
-import EventID 1.0
+import EnumID 1.0
 
 Item {
     Rectangle{

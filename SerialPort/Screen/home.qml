@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import EventID 1.0
+import EnumID 1.0
 
 Item {
     Rectangle {
@@ -17,7 +17,7 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                UIBridge.hmiEvent("", EventID.HMI_CONNECTION_PORTCOM_SCREEN, "")
+                UIBridge.hmiEvent("", EnumID.HMI_CONNECTION_PORTCOM_SCREEN, "")
             }
         }
     }
@@ -37,7 +37,7 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                UIBridge.hmiEvent("", EventID.HMI_CONNECTION_NETWORK_SCREEN, "")
+                UIBridge.hmiEvent("", EnumID.HMI_CONNECTION_NETWORK_SCREEN, "")
             }
         }
     }

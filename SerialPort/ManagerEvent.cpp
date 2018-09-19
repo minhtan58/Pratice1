@@ -1,7 +1,7 @@
 #include "ManagerEvent.h"
 
 ManagerEvent::ManagerEvent(QObject *parent) : QObject(parent){
-    qmlRegisterType<EventID>("EventID", 1, 0, "EventID");
+    qmlRegisterType<EnumID>("EnumID", 1, 0, "EnumID");
 }
 
 void ManagerEvent::initWindow(){
@@ -16,13 +16,16 @@ void ManagerEvent::initWindow(){
 
     connect(UIBridge::getInstance(), SIGNAL(hmiEvent(QString, int, QString)), this, SLOT(hmiHandle(QString, int,QString)));
 
-    m_screenContainer = m_engine.rootObjects().at(0)->findChild<QQuickItem*>("screenContainer");
-    m_screenContainer->setProperty("source", "qrc:/Screen/home.qml");
+//    m_screenContainer = m_engine.rootObjects().at(0)->findChild<QQuickItem*>("screenContainer");
+//    m_screenContainer->setProperty("source", "qrc:/Screen/home.qml");
+
+    m_screenAdapter = new ScreenAdapter(m_engine.rootObjects().at(0)->findChild<QQuickItem*>("screenContainer"), this);
+    showScreen(ICS_HOME);
 }
 
 void ManagerEvent::showScreen(int screenId){
-    qDebug() << "Display screen - " << screenId;
-    if(m_screenAdapter && m_screenAdapter->getCurrentScreen() = screenId)
+    qDebug() << "Display screen -" << screenId;
+    if(m_screenAdapter && m_screenAdapter->getCurrentScreen() == screenId)
         return;
 
     m_screenAdapter->setScreenId(screenId);
@@ -59,34 +62,34 @@ void ManagerEvent::hideOverlay(){
     overlayScreen->setProperty("source", "");
 }
 
-void ManagerEvent::hmiHandle(QString objectName, int eventId, QString param){
-    switch (eventId) {
-    case EventID::HMI_HOME_SCREEN:
+void ManagerEvent::hmiHandle(QString objectName, int EnumID, QString param){
+    switch (EnumID) {
+    case EnumID::HMI_HOME_SCREEN:
     {
-        m_screenContainer->setProperty("source", mapScreen.value(ICS_HOME));
+        showScreen(ICS_HOME);
         break;
     }
-    case EventID::HMI_CONNECTION_PORTCOM_SCREEN:
+    case EnumID::HMI_CONNECTION_PORTCOM_SCREEN:
     {
-        m_screenContainer->setProperty("source", mapScreen.value(ICS_CONNECTION_PORTCOM));
+        showScreen(ICS_CONNECTION_PORTCOM);
         break;
     }
-    case EventID::HMI_CONNECTION_NETWORK_SCREEN:
+    case EnumID::HMI_CONNECTION_NETWORK_SCREEN:
     {
-        m_screenContainer->setProperty("source", mapScreen.value(ICS_CONNECTION_NETWORK));
+        showScreen(ICS_CONNECTION_NETWORK);
         break;
     }
-    case EventID::HMI_HIDE_POPUP:
+    case EnumID::HMI_HIDE_POPUP:
     {
         hideOverlay();
         break;
     }
-    case EventID::HMI_CONNECTED_POPUP:
+    case EnumID::HMI_CONNECTED_POPUP:
     {
         showOverlay(ICS_CONNECT_POPUP, 3000);
         break;
     }
-    case EventID::HMI_DISCONNECTED_POPUP:
+    case EnumID::HMI_DISCONNECTED_POPUP:
     {
         showOverlay(ICS_DISCONNECT_POPUP, 3000);
         break;

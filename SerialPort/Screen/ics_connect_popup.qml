@@ -1,6 +1,6 @@
 import QtQuick 2.5
 import QtQuick.Window 2.2
-import EventID 1.0
+import EnumID 1.0
 
 Item {
     id: connected_screen
@@ -12,7 +12,7 @@ Item {
     Timer{
         id: time
         repeat: false
-        onTriggered: UIBridge.hmiEvent(this.objectName, EventID.HMI_HIDE_POPUP, "")
+        onTriggered: UIBridge.hmiEvent(this.objectName, EnumID.HMI_HIDE_POPUP, "")
     }
 
     Rectangle{
@@ -43,7 +43,7 @@ Item {
 
     MouseArea{
         anchors.fill: parent
-        onClicked: UIBridge.hmiEvent(this.objectName, EventID.HMI_HIDE_POPUP, "")
+        onClicked: UIBridge.hmiEvent(this.objectName, EnumID.HMI_HIDE_POPUP, "")
     }
 
     Component.onCompleted: {

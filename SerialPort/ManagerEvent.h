@@ -19,7 +19,7 @@ class ManagerEvent : public QObject
 public:
     explicit ManagerEvent(QObject *parent = 0);
     QQuickItem *m_screenContainer = nullptr;
-    void sendEvent(int eventId, QString params);
+    void sendEvent(int EnumID, QString params);
     void initWindow();
 
 private:
@@ -27,7 +27,7 @@ private:
     UIBridge *m_uiBridge;
     MySerialPort *m_mySerialPort = nullptr;
     MyTcpSocket *m_myTcpSocket = nullptr;
-    ScreenAdapter m_screenAdapter = nullptr;
+    ScreenAdapter *m_screenAdapter = nullptr;
 
     void showScreen(int screenId);
 
@@ -37,7 +37,7 @@ private:
 signals:
 
 public slots:
-    void hmiHandle(QString objectName, int eventId, QString param);
+    void hmiHandle(QString objectName, int EnumID, QString param);
 };
 
 #endif // MANAGEREVENT_H

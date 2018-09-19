@@ -1,6 +1,6 @@
 import QtQuick 2.5
 import QtQuick.Window 2.2
-import EventID 1.0
+import EnumID 1.0
 
 Item {
     Rectangle {
@@ -14,7 +14,7 @@ Item {
         Text {text: qsTr("Back");anchors.centerIn: parent}
         MouseArea {
             anchors.fill: parent
-            onClicked: UIBridge.hmiEvent("", EventID.ICS_HOME,"")
+            onClicked: UIBridge.hmiEvent("", EnumID.ICS_HOME,"")
         }
     }
 
