@@ -4,6 +4,8 @@
     m_datapool.insert((int)param, (QString)""); \
     m_dpName.insert((int)param, ((QString)#param).mid(10))
 
+ManagerData* ManagerData::m_managerData = nullptr;
+
 ManagerData::ManagerData(QObject *parent) : QObject(parent)
 {
     initData();
@@ -38,7 +40,7 @@ void ManagerData::setData(int dpid, QString value)
             return;
         }
     } else {
-        qDebug() << ("DPID: %d Incorrect", dpid);
+        qDebug() << "DPID: %d Incorrect";
     }
 }
 

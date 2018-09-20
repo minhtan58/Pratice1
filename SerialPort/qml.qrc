@@ -8,5 +8,6 @@
         <file>Screen/ics_connect_popup.qml</file>
         <file>Screen/ics_disconnect_popup.qml</file>
         <file>Screen/ics_data_view.qml</file>
+        <file>Images/background.jpg</file>
     </qresource>
 </RCC>

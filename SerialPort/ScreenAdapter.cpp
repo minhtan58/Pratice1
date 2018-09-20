@@ -11,43 +11,41 @@ ScreenAdapter::ScreenAdapter(QObject *container, QObject *parent)
 ScreenAdapter::~ScreenAdapter()
 {}
 
-void ScreenAdapter::createScreen(){
+void ScreenAdapter::createScreen() {
     qDebug() << "Load screen starting...";
     m_screenContainer->setProperty("source", mapScreen.value(m_screenId));
-    //m_screenView = m_screenContainer->property()
+    m_screenView = qvariant_cast<QObject*>(m_screenContainer->property("item"));
     //initAppData();
     qDebug() << "Load screen " << m_screenId << "done";
 }
 
-int ScreenAdapter::getCurrentScreen()
-{
+int ScreenAdapter::getCurrentScreen() {
     return m_screenId;
 }
 
-void ScreenAdapter::setScreenId(int screenId)
-{
+void ScreenAdapter::setScreenId(int screenId) {
     m_screenId = screenId;
 }
 
-void ScreenAdapter::initAppData(){
+void ScreenAdapter::initAppData() {
     switch (m_screenId) {
     case ICS_DATA_VIEW: {
-        SETPROPERTY("viewO2", "textValue", GETDPDATA(CEMSEnum::DP_AIR_O2));
+        SETPROPERTY("viewO2", "textValue", GETDPDATA(EnumID::DP_FROM_PORTCOM));
 
         break;
     }
     case ICS_CONNECTION_PORTCOM: {
-        SETPROPERTY("viewO2", "textValue", GETDPDATA(CEMSEnum::DP_AIR_O2));
+        SETPROPERTY("viewO2", "textValue", GETDPDATA(EnumID::DP_FROM_PORTCOM));
 
         break;
     }
     case ICS_CONNECTION_NETWORK: {
-        SETPROPERTY("viewO2", "textValue", GETDPDATA(CEMSEnum::DP_AIR_O2));
+        SETPROPERTY("viewO2", "textValue", GETDPDATA(EnumID::DP_FROM_NETWORK));
 
         break;
     }
     case ICS_HOME: {
-        SETPROPERTY("viewO2", "textValue", GETDPDATA(CEMSEnum::DP_AIR_O2));
+        SETPROPERTY("viewO2", "textValue", GETDPDATA(EnumID::DP_DATE));
 
         break;
     }
@@ -56,6 +54,6 @@ void ScreenAdapter::initAppData(){
     }
 }
 
-void ScreenAdapter::updateAppdata(int dpid){
+void ScreenAdapter::updateAppdata(int dpid) {
 
 }

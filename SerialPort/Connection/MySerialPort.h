@@ -13,9 +13,11 @@ class MySerialPort : public QObject
 public:
     explicit MySerialPort(QObject *parent = 0);
     QString message() const;
+    QString getData() const;
 
 signals:
     void messageChanged();
+    void readComplete();
 
 public slots:
     void readData();

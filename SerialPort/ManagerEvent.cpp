@@ -79,6 +79,11 @@ void ManagerEvent::hmiHandle(QString objectName, int EnumID, QString param){
         showScreen(ICS_CONNECTION_NETWORK);
         break;
     }
+    case EnumID::HMI_DATA_VIEW_SCREEN:
+    {
+        showScreen(ICS_DATA_VIEW);
+        break;
+    }
     case EnumID::HMI_HIDE_POPUP:
     {
         hideOverlay();

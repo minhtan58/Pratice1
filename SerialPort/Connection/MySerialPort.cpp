@@ -41,6 +41,11 @@ QString MySerialPort::message() const
     return m_dataChange;
 }
 
+QString MySerialPort::getData() const
+{
+    return m_dataChange;
+}
+
 void MySerialPort::setMessage(const QString &m)
 {
         if (m_dataChange == m)
@@ -55,6 +60,7 @@ void MySerialPort::readData()
    m_dataChange = QString::fromUtf8(data);
    qDebug() << data;
    emit messageChanged();
+   emit readComplete();
 }
 
 void MySerialPort::handleError(QSerialPort::SerialPortError error)

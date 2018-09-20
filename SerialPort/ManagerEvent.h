@@ -5,7 +5,6 @@
 #include <QQuickItem>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include <QQuickItem>
 
 #include "UIBridge.h"
 #include "MySerialPort.h"

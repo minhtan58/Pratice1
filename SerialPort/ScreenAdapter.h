@@ -3,9 +3,13 @@
 
 #include <QObject>
 #include <QQmlApplicationEngine>
+#include <QQmlProperty>
+#include <QQmlContext>
 #include <QQuickItem>
+
 #include "Enum.h"
 #include "Defines.h"
+#include "ManagerData.h"
 
 class ScreenAdapter : public QObject
 {
@@ -18,7 +22,7 @@ public:
     int getCurrentScreen();
     void setScreenId(int screenId);
     void initAppData();
-    void updateAppdata(int dpid);
+
 
 private:
     int m_screenId;
@@ -28,6 +32,7 @@ private:
 signals:
 
 public slots:
+    void updateAppdata(int dpid);
 
 };
 
