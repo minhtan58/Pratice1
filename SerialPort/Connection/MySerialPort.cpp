@@ -41,7 +41,7 @@ QString MySerialPort::message() const
     return m_dataChange;
 }
 
-QString MySerialPort::getData() const
+QString MySerialPort::getData(int dpId) const
 {
     return m_dataChange;
 }

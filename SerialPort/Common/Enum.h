@@ -21,7 +21,10 @@ public:
         DP_YEAR,
 
         DP_FROM_PORTCOM,
-        DP_FROM_NETWORK
+        DP_FROM_NETWORK,
+
+        DP_PORTCOM,
+        DP_NETWORK
    }DatapoolID;
 
      typedef enum _HMIEvent{

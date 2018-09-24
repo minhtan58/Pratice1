@@ -13,7 +13,7 @@ class MySerialPort : public QObject
 public:
     explicit MySerialPort(QObject *parent = 0);
     QString message() const;
-    QString getData() const;
+    QString getData(int dpId) const;
 
 signals:
     void messageChanged();

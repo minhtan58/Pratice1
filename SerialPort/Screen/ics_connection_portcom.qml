@@ -52,7 +52,7 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                UIBridge.hmiEvent("", EnumID.HMI_CONNECED_POPUP,"")
+                //UIBridge.hmiEvent("", EnumID.HMI_CONNECED_POPUP,"")
                 MySerialPort.openSerialPort(port_to_connect.text);
                 MySerialPort.readData()
 

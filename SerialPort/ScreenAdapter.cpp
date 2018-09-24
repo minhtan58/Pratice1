@@ -30,17 +30,17 @@ void ScreenAdapter::setScreenId(int screenId) {
 void ScreenAdapter::initAppData() {
     switch (m_screenId) {
     case ICS_DATA_VIEW: {
-        SETPROPERTY("viewO2", "textValue", GETDPDATA(EnumID::DP_FROM_PORTCOM));
-
+        SETPROPERTY("data_from_portcom", "textValue", GETDPDATA(EnumID::DP_FROM_PORTCOM));
+        SETPROPERTY("data_from_network", "textValue", GETDPDATA(EnumID::DP_FROM_NETWORK));
         break;
     }
     case ICS_CONNECTION_PORTCOM: {
-        SETPROPERTY("viewO2", "textValue", GETDPDATA(EnumID::DP_FROM_PORTCOM));
+        SETPROPERTY("viewO2", "textValue", GETDPDATA(EnumID::DP_PORTCOM));
 
         break;
     }
     case ICS_CONNECTION_NETWORK: {
-        SETPROPERTY("viewO2", "textValue", GETDPDATA(EnumID::DP_FROM_NETWORK));
+        SETPROPERTY("viewO2", "textValue", GETDPDATA(EnumID::DP_NETWORK));
 
         break;
     }

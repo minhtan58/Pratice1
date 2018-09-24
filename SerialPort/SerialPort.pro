@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     Connection/MySerialPort.cpp \
     Connection/MyTcpSocket.cpp \
     Threads/TimeHandler.cpp \
-    Threads/SerialPortHandler.cpp
+    Threads/SerialPortHandler.cpp \
+    Threads/BaseThreads.cpp
 
 RESOURCES += qml.qrc
 
@@ -40,4 +41,5 @@ HEADERS += \
     Connection/MySerialPort.h \
     Connection/MyTcpSocket.h \
     Threads/TimeHandler.h \
-    Threads/SerialPortHandler.h
+    Threads/SerialPortHandler.h \
+    Threads/BaseThreads.h

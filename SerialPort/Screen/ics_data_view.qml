@@ -26,7 +26,7 @@ Item {
         color: "lightBlue"
         border.color: "black"
         Text {
-            text: qsTr("Internet")
+            id: data_portcom
             anchors.centerIn: parent
         }
     }
@@ -40,7 +40,7 @@ Item {
         color: "lightBlue"
         border.color: "black"
         Text {
-            text: qsTr("Dataview")
+            id: data_network
             anchors.centerIn: parent
         }
     }

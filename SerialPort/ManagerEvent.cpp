@@ -5,6 +5,8 @@ ManagerEvent::ManagerEvent(QObject *parent) : QObject(parent){
 }
 
 void ManagerEvent::initWindow(){
+    ManagerData::getInstance();
+
     m_engine.rootContext()->setContextProperty("UIBridge", UIBridge::getInstance());   //Tao cau noi giua QML va C++
     m_engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
@@ -20,7 +22,9 @@ void ManagerEvent::initWindow(){
 //    m_screenContainer->setProperty("source", "qrc:/Screen/home.qml");
 
     m_screenAdapter = new ScreenAdapter(m_engine.rootObjects().at(0)->findChild<QQuickItem*>("screenContainer"), this);
+    m_baseThreads->start();
     showScreen(ICS_HOME);
+
 }
 
 void ManagerEvent::showScreen(int screenId){

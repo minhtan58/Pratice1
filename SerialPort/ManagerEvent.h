@@ -11,6 +11,8 @@
 #include "MyTcpSocket.h"
 #include "Enum.h"
 #include "ScreenAdapter.h"
+#include "BaseThreads.h"
+#include "SerialPortHandler.h"
 
 class ManagerEvent : public QObject
 {
@@ -27,9 +29,9 @@ private:
     MySerialPort *m_mySerialPort = nullptr;
     MyTcpSocket *m_myTcpSocket = nullptr;
     ScreenAdapter *m_screenAdapter = nullptr;
+    BaseThreads *m_baseThreads = nullptr;
 
     void showScreen(int screenId);
-
     void showOverlay(int overlayId, int timeout, int layer = OVERLAY, QString message = "");
     void hideOverlay();
 
