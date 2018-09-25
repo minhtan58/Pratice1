@@ -23,7 +23,6 @@ public:
     void setScreenId(int screenId);
     void initAppData();
 
-
 private:
     int m_screenId;
     QObject* m_screenContainer = nullptr;

@@ -6,6 +6,7 @@ ManagerEvent::ManagerEvent(QObject *parent) : QObject(parent){
 
 void ManagerEvent::initWindow(){
     ManagerData::getInstance();
+    m_baseThreads = new BaseThreads(this);
 
     m_engine.rootContext()->setContextProperty("UIBridge", UIBridge::getInstance());   //Tao cau noi giua QML va C++
     m_engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

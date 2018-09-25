@@ -15,7 +15,7 @@ void ScreenAdapter::createScreen() {
     qDebug() << "Load screen starting...";
     m_screenContainer->setProperty("source", mapScreen.value(m_screenId));
     m_screenView = qvariant_cast<QObject*>(m_screenContainer->property("item"));
-    //initAppData();
+    initAppData();
     qDebug() << "Load screen " << m_screenId << "done";
 }
 
@@ -30,8 +30,9 @@ void ScreenAdapter::setScreenId(int screenId) {
 void ScreenAdapter::initAppData() {
     switch (m_screenId) {
     case ICS_DATA_VIEW: {
-        SETPROPERTY("data_from_portcom", "textValue", GETDPDATA(EnumID::DP_FROM_PORTCOM));
-        SETPROPERTY("data_from_network", "textValue", GETDPDATA(EnumID::DP_FROM_NETWORK));
+        qDebug() << "Minhtan";
+        SETPROPERTY("data_portcom", "textValue", GETDPDATA(EnumID::DP_PORTCOM));
+        SETPROPERTY("data_network", "textValue", GETDPDATA(EnumID::DP_NETWORK));
         break;
     }
     case ICS_CONNECTION_PORTCOM: {

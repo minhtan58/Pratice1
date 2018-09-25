@@ -57,10 +57,10 @@ void MySerialPort::setMessage(const QString &m)
 void MySerialPort::readData()
 {
    QByteArray data = serial->readAll();
-   m_dataChange = QString::fromUtf8(data);
-   qDebug() << data;
+   m_dataChange = QString::fromUtf8(data);   
    emit messageChanged();
    emit readComplete();
+   qDebug() << "rev: " << data;
 }
 
 void MySerialPort::handleError(QSerialPort::SerialPortError error)
