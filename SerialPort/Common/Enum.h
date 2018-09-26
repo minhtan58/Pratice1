@@ -20,11 +20,12 @@ public:
         DP_MONTH,
         DP_YEAR,
 
-        DP_FROM_PORTCOM,
-        DP_FROM_NETWORK,
-
         DP_PORTCOM,
-        DP_NETWORK
+        DP_FROM_PORTCOM,        
+        DP_SETTINGS_SERIALPORT_TEST_CONNECTION,
+
+        DP_NETWORK,
+        DP_FROM_NETWORK
    }DatapoolID;
 
      typedef enum _HMIEvent{
@@ -34,9 +35,37 @@ public:
         HMI_DATA_VIEW_SCREEN,
         HMI_HIDE_POPUP,
         HMI_CONNECTED_POPUP,
-        HMI_DISCONNECTED_POPUP
+        HMI_DISCONNECTED_POPUP,
+        HMI_REQUEST_COMMON_POPUP,
+
+        HMI_TAB_SELECT,
+        HMI_BUTTON_TEST_CONNECTIONS_SERIALPORT
+
     }HMIEvent;
 };
+
+//***********************************************************************************************//
+enum  ScreenID{
+    ICS_HOME = 0x0000,
+    ICS_CONNECTION_PORTCOM,
+    ICS_CONNECTION_NETWORK,
+    ICS_DATA_VIEW,
+
+    ICS_COMMON_POPUP = 0xA000,
+    ICS_CONNECT_POPUP,
+    ICS_DISCONNECT_POPUP
+};
+
+const QHash<int, QString> mapScreen = {
+    {ICS_HOME,                             "qrc:/Screen/home.qml"                                },
+    {ICS_COMMON_POPUP,                     "qrc:/Screen/ics_common_popup.qml"                    },
+    {ICS_CONNECTION_PORTCOM,               "qrc:/Screen/ics_connection_portcom.qml"              },
+    {ICS_CONNECTION_NETWORK,               "qrc:/Screen/ics_connection_network.qml"              },
+    {ICS_DATA_VIEW,                        "qrc:/Screen/ics_data_view.qml"                       },
+    {ICS_CONNECT_POPUP,                    "qrc:/Screen/ics_connect_popup.qml"                   },
+    {ICS_DISCONNECT_POPUP,                 "qrc:/Screen/ics_disconnect_popup.qml"                },
+};
+//***********************************************************************************************//
 
 enum OverlayZ{
     BACKGROUND = -1,
@@ -46,22 +75,11 @@ enum OverlayZ{
     OVERLAY,
 };
 
-enum  ScreenID{
-    ICS_HOME = 0x0000,
-    ICS_CONNECTION_PORTCOM,
-    ICS_CONNECTION_NETWORK,
-    ICS_DATA_VIEW,
-
-    ICS_CONNECT_POPUP = 0xA000,
-    ICS_DISCONNECT_POPUP
+enum TestConnection {
+    IS_CONNECT_FAIL,
+    IS_CHECKING,
+    IS_CONNECTED,
+    IS_DISCONNECTED,
 };
 
-const QHash<int, QString> mapScreen = {
-    {ICS_HOME,                             "qrc:/Screen/home.qml"                                },
-    {ICS_CONNECTION_PORTCOM,               "qrc:/Screen/ics_connection_portcom.qml"              },
-    {ICS_CONNECTION_NETWORK,               "qrc:/Screen/ics_connection_network.qml"              },
-    {ICS_DATA_VIEW,                        "qrc:/Screen/ics_data_view.qml"                       },
-    {ICS_CONNECT_POPUP,                    "qrc:/Screen/ics_connect_popup.qml"                   },
-    {ICS_DISCONNECT_POPUP,                 "qrc:/Screen/ics_disconnect_popup.qml"                },
-};
 #endif // ENUM_H

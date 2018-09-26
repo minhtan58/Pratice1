@@ -31,5 +31,22 @@ void SerialPortHandler::readData(int dpId) {
     default:
         break;
     }
+}
 
+void SerialPortHandler::eventHandler(QString objectName, int eventId, QString param) {
+    Q_UNUSED(objectName)
+    switch (eventId) {
+    case EnumID::HMI_TAB_SELECT: {
+        break;
+    }
+    case EnumID::HMI_BUTTON_TEST_CONNECTIONS_SERIALPORT: {
+        //QStringList paramList = getListParam(param);
+        SENDEVENT("" , EnumID::HMI_REQUEST_COMMON_POPUP, "3000,Connecting...");
+        SETDPDATA(EnumID::DP_SETTINGS_SERIALPORT_TEST_CONNECTION, QString::number(int(IS_CHECKING)));
+        m_serialPort->openSerialPort(param);
+        break;
+    }
+    default:
+        break;
+    }
 }

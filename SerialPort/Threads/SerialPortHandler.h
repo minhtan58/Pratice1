@@ -20,6 +20,7 @@ signals:
 
 public slots:
     void readDataType();
+    void eventHandler(QString objectName, int eventId, QString param);
 
 private:
     MySerialPort *m_serialPort = nullptr;
@@ -37,7 +38,7 @@ protected:
     void run() {
         qDebug() << "Start";
         SerialPortHandler handler;
-        //connect(UIBridge::getInstance(), SIGNAL(hmiEvent(QString,int,QString)), &handler, SLOT(eventHandler(QString,int,QString)));
+        connect(UIBridge::getInstance(), SIGNAL(hmiEvent(QString,int,QString)), &handler, SLOT(eventHandler(QString,int,QString)));
         //connect(ManagerData::getInstance(), SIGNAL(dataChanged(int)), &handler, SLOT(updateAppData(int)));
         exec();
     }

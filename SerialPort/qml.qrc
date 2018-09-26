@@ -9,5 +9,6 @@
         <file>Screen/ics_disconnect_popup.qml</file>
         <file>Screen/ics_data_view.qml</file>
         <file>Images/background.jpg</file>
+        <file>Screen/ics_common_popup.qml</file>
     </qresource>
 </RCC>

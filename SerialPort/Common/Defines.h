@@ -1,6 +1,12 @@
 #ifndef DEFINES_H
 #define DEFINES_H
 
+inline QStringList getListParam(QString params)
+{
+    return params.split(",");
+}
+
+#define SENDEVENT(OBJECT, EVENTID, PARAM)   UIBridge::getInstance()->sendEvent(OBJECT, EVENTID, PARAM)
 
 #define SETDPDATA(DPID, VALUE)  ManagerData::getInstance()->setData(DPID, VALUE)
 
