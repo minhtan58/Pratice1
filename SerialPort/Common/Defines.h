@@ -1,6 +1,8 @@
 #ifndef DEFINES_H
 #define DEFINES_H
 
+#include <QStringList>
+
 inline QStringList getListParam(QString params)
 {
     return params.split(",");

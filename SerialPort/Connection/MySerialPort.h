@@ -5,6 +5,10 @@
 #include <QtSerialPort/QSerialPort>
 #include <QDebug>
 
+#include "Enum.h"
+#include "Defines.h"
+#include "ManagerData.h"
+
 class MySerialPort : public QObject
 {
     Q_OBJECT
@@ -30,7 +34,7 @@ public slots:
 private:
     QString m_dataChange;
     void showStatus(const QString &status);
-    QSerialPort *serial = nullptr;
+    QSerialPort *m_serial = nullptr;
 };
 
 #endif // MYSERIALPORT_H

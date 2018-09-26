@@ -14,6 +14,6 @@ UIBridge *UIBridge::getInstance(){
     return m_uiBridge;
 }
 
-void UIBridge::sendEvent(QString objectName, int EnumID, QString param){
-    emit hmiEvent(objectName, EnumID, param);
+void UIBridge::sendEvent(QString objectName, int enumID, QString param){
+    emit hmiEvent(objectName, enumID, param);
 }

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QThread>
+#include <QStringList>
 
 #include "MySerialPort.h"
 #include "Enum.h"

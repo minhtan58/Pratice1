@@ -2,38 +2,46 @@
 
 MySerialPort::MySerialPort(QObject *parent) : QObject(parent)
 {
-    serial = new QSerialPort(this);
-    connect(serial, SIGNAL(readyRead()), this, SLOT(readData()));
-    connect(serial, SIGNAL(error(QSerialPort::SerialPortError)), this, SLOT(handleError(QSerialPort::SerialPortError)));
+    m_serial = new QSerialPort(this);
+    connect(m_serial, SIGNAL(readyRead()), this, SLOT(readData()));
+    connect(m_serial, SIGNAL(error(QSerialPort::SerialPortError)), this, SLOT(handleError(QSerialPort::SerialPortError)));
 }
 
 void MySerialPort::openSerialPort(QString portCom)
 {
-    //serial->setPortName("COM2");
-    serial->setPortName(portCom);
-    serial->setBaudRate(QSerialPort::Baud9600);
-    serial->setDataBits(QSerialPort::Data8);
-    serial->setParity(QSerialPort::NoParity);
-    serial->setStopBits(QSerialPort::OneStop);
-    serial->setFlowControl(QSerialPort::NoFlowControl);
-    if (serial->open(QIODevice::ReadWrite)) {
-        showStatus("Connected");
+    if(m_serial->portName() == portCom) {
+        if(m_serial->isOpen()) {
+            SETDPDATA(EnumID::DP_SERIALPORT_TEST_CONNECTION, QString::number(int(IS_CONNECTED)));
+            return;
+        }
+    }
+
+    m_serial->setPortName(portCom);
+    m_serial->setBaudRate(QSerialPort::Baud9600);
+    m_serial->setDataBits(QSerialPort::Data8);
+    m_serial->setParity(QSerialPort::NoParity);
+    m_serial->setStopBits(QSerialPort::OneStop);
+    m_serial->setFlowControl(QSerialPort::NoFlowControl);
+    if (m_serial->open(QIODevice::ReadWrite)) {
+        SETDPDATA(EnumID::DP_SERIALPORT_TEST_CONNECTION, QString::number(int(IS_CONNECTED)));
+        return;
     } else {
-        showStatus(tr("Open error"));
+        SETDPDATA(EnumID::DP_SERIALPORT_TEST_CONNECTION, QString::number(int(IS_CONNECTED)));
+        return;
     }
 }
 
 void MySerialPort::closeSerialPort()
 {
-    if (serial->isOpen())
-        serial->close();
+    if (m_serial->isOpen())
+        m_serial->close();
 
     showStatus(tr("Disconnected"));
 }
 
 void MySerialPort::writeData(const QByteArray &data)
 {
-    serial->write(data);
+    m_serial->write(data);
 }
 
 QString MySerialPort::message() const
@@ -56,7 +64,7 @@ void MySerialPort::setMessage(const QString &m)
 
 void MySerialPort::readData()
 {
-   QByteArray data = serial->readAll();
+   QByteArray data = m_serial->readAll();
    m_dataChange = QString::fromUtf8(data);   
    emit messageChanged();
    emit readComplete();

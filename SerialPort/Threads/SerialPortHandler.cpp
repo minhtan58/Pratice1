@@ -24,7 +24,7 @@ void SerialPortHandler::readData(int dpId) {
 
     case EnumID::DP_FROM_NETWORK : {
         SETDPDATA(EnumID::DP_NETWORK, value);
-        qDebug() << "OK1";
+        qDebug() << "OK";
         break;
     }
 
@@ -42,7 +42,7 @@ void SerialPortHandler::eventHandler(QString objectName, int eventId, QString pa
     case EnumID::HMI_BUTTON_TEST_CONNECTIONS_SERIALPORT: {
         //QStringList paramList = getListParam(param);
         SENDEVENT("" , EnumID::HMI_REQUEST_COMMON_POPUP, "3000,Connecting...");
-        SETDPDATA(EnumID::DP_SETTINGS_SERIALPORT_TEST_CONNECTION, QString::number(int(IS_CHECKING)));
+        SETDPDATA(EnumID::DP_SERIALPORT_TEST_CONNECTION, QString::number(int(IS_CHECKING)));
         m_serialPort->openSerialPort(param);
         break;
     }

@@ -39,7 +39,7 @@ Item {
     }
 
     Rectangle {
-        id: connect_server_button
+        id: connect_button
         x: 130
         y: 60
         width: 70
@@ -52,7 +52,6 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                //UIBridge.hmiEvent("", EnumID.HMI_CONNECED_POPUP,"")
                 MySerialPort.openSerialPort(port_to_connect.text);
                 MySerialPort.readData()
 
@@ -82,7 +81,7 @@ Item {
     }
 
     Rectangle {
-        id: disconnect_server_button
+        id: disconnect_button
         x: 220
         y: 60
         width: 70

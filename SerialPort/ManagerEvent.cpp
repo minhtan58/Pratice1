@@ -11,8 +11,8 @@ void ManagerEvent::initWindow(){
     m_engine.rootContext()->setContextProperty("UIBridge", UIBridge::getInstance());   //Tao cau noi giua QML va C++
     m_engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
-    m_mySerialPort = new MySerialPort(this);
-    m_engine.rootContext()->setContextProperty("MySerialPort", m_mySerialPort);
+    //m_mySerialPort = new MySerialPort(this);
+    //m_engine.rootContext()->setContextProperty("MySerialPort", m_mySerialPort);
 
     m_myTcpSocket = new MyTcpSocket(this);
     m_engine.rootContext()->setContextProperty("MyTcpSocket", m_myTcpSocket);

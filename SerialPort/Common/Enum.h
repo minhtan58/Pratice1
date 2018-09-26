@@ -22,7 +22,7 @@ public:
 
         DP_PORTCOM,
         DP_FROM_PORTCOM,        
-        DP_SETTINGS_SERIALPORT_TEST_CONNECTION,
+        DP_SERIALPORT_TEST_CONNECTION,
 
         DP_NETWORK,
         DP_FROM_NETWORK
@@ -33,6 +33,7 @@ public:
         HMI_CONNECTION_PORTCOM_SCREEN,
         HMI_CONNECTION_NETWORK_SCREEN,
         HMI_DATA_VIEW_SCREEN,
+
         HMI_HIDE_POPUP,
         HMI_CONNECTED_POPUP,
         HMI_DISCONNECTED_POPUP,
@@ -76,9 +77,9 @@ enum OverlayZ{
 };
 
 enum TestConnection {
-    IS_CONNECT_FAIL,
     IS_CHECKING,
     IS_CONNECTED,
+    IS_CONNECT_FAIL,
     IS_DISCONNECTED,
 };
 
